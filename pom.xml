@@ -7,7 +7,7 @@
 
     <groupId>io.github.beingmartinbmc</groupId>
     <artifactId>eli5</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>ELI5</name>
