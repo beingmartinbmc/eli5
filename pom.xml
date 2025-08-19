@@ -7,7 +7,7 @@
 
     <groupId>io.github.beingmartinbmc</groupId>
     <artifactId>eli5</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>maven-plugin</packaging>
 
     <name>ELI5</name>
@@ -38,13 +38,10 @@
     
     <!-- Distribution Management for Maven Central -->
     <distributionManagement>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
             <id>central</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <name>Maven Central</name>
+            <url>https://central.sonatype.com/api/v1/publisher</url>
         </repository>
     </distributionManagement>
 
