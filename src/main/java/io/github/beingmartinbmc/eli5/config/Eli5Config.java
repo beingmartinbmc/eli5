@@ -30,69 +30,63 @@ public class Eli5Config {
                 return;
             }
             
-            // Try multiple locations for the properties file
-            boolean loaded = false;
+            // Load from multiple locations, allowing later sources to override earlier ones
+            boolean anyLoaded = false;
             
-            // 1. Try classpath resource (for annotation processor)
+            // 1. Try classpath resource (for annotation processor) - lowest priority
             try (InputStream input = Eli5Config.class.getClassLoader().getResourceAsStream("eli5.properties")) {
                 if (input != null) {
                     config.load(input);
                     logger.debug("Loaded configuration from classpath eli5.properties");
-                    loaded = true;
+                    anyLoaded = true;
                 }
             } catch (IOException e) {
                 logger.debug("Failed to load classpath eli5.properties: {}", e.getMessage());
             }
             
-            // 2. Try project src/main/resources (for Maven plugin)
-            if (!loaded) {
-                try {
-                    File projectProps = new File("src/main/resources/eli5.properties");
-                    if (projectProps.exists()) {
-                        try (FileInputStream input = new FileInputStream(projectProps)) {
-                            config.load(input);
-                            logger.debug("Loaded configuration from src/main/resources/eli5.properties");
-                            loaded = true;
-                        }
+            // 2. Try project src/main/resources (for Maven plugin) - higher priority
+            try {
+                File projectProps = new File("src/main/resources/eli5.properties");
+                if (projectProps.exists()) {
+                    try (FileInputStream input = new FileInputStream(projectProps)) {
+                        config.load(input);
+                        logger.debug("Loaded configuration from src/main/resources/eli5.properties");
+                        anyLoaded = true;
                     }
-                } catch (IOException e) {
-                    logger.debug("Failed to load src/main/resources/eli5.properties: {}", e.getMessage());
                 }
+            } catch (IOException e) {
+                logger.debug("Failed to load src/main/resources/eli5.properties: {}", e.getMessage());
             }
             
-            // 3. Try current working directory
-            if (!loaded) {
-                try {
-                    File cwdProps = new File("eli5.properties");
-                    if (cwdProps.exists()) {
-                        try (FileInputStream input = new FileInputStream(cwdProps)) {
-                            config.load(input);
-                            logger.debug("Loaded configuration from current directory eli5.properties");
-                            loaded = true;
-                        }
+            // 3. Try current working directory - higher priority
+            try {
+                File cwdProps = new File("eli5.properties");
+                if (cwdProps.exists()) {
+                    try (FileInputStream input = new FileInputStream(cwdProps)) {
+                        config.load(input);
+                        logger.debug("Loaded configuration from current directory eli5.properties");
+                        anyLoaded = true;
                     }
-                } catch (IOException e) {
-                    logger.debug("Failed to load current directory eli5.properties: {}", e.getMessage());
                 }
+            } catch (IOException e) {
+                logger.debug("Failed to load current directory eli5.properties: {}", e.getMessage());
             }
             
-            // 4. Try target/classes (for compiled projects)
-            if (!loaded) {
-                try {
-                    File targetProps = new File("target/classes/eli5.properties");
-                    if (targetProps.exists()) {
-                        try (FileInputStream input = new FileInputStream(targetProps)) {
-                            config.load(input);
-                            logger.debug("Loaded configuration from target/classes/eli5.properties");
-                            loaded = true;
-                        }
+            // 4. Try target/classes (for compiled projects) - highest priority
+            try {
+                File targetProps = new File("target/classes/eli5.properties");
+                if (targetProps.exists()) {
+                    try (FileInputStream input = new FileInputStream(targetProps)) {
+                        config.load(input);
+                        logger.debug("Loaded configuration from target/classes/eli5.properties");
+                        anyLoaded = true;
                     }
-                } catch (IOException e) {
-                    logger.debug("Failed to load target/classes/eli5.properties: {}", e.getMessage());
                 }
+            } catch (IOException e) {
+                logger.debug("Failed to load target/classes/eli5.properties: {}", e.getMessage());
             }
             
-            if (!loaded) {
+            if (!anyLoaded) {
                 logger.debug("No eli5.properties file found, using defaults");
             }
             
