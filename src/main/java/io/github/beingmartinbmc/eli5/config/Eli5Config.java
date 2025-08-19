@@ -33,7 +33,7 @@ public class Eli5Config {
             // Load from multiple locations, allowing later sources to override earlier ones
             boolean anyLoaded = false;
             
-            // 1. Try classpath resource (for annotation processor) - lowest priority
+            // 1. Try classpath resource (for annotation processor during compilation)
             try (InputStream input = Eli5Config.class.getClassLoader().getResourceAsStream("eli5.properties")) {
                 if (input != null) {
                     config.load(input);
@@ -44,7 +44,7 @@ public class Eli5Config {
                 logger.debug("Failed to load classpath eli5.properties: {}", e.getMessage());
             }
             
-            // 2. Try project src/main/resources (for Maven plugin) - higher priority
+            // 2. Try project src/main/resources (for Maven plugin)
             try {
                 File projectProps = new File("src/main/resources/eli5.properties");
                 if (projectProps.exists()) {
@@ -58,7 +58,7 @@ public class Eli5Config {
                 logger.debug("Failed to load src/main/resources/eli5.properties: {}", e.getMessage());
             }
             
-            // 3. Try current working directory - higher priority
+            // 3. Try current working directory
             try {
                 File cwdProps = new File("eli5.properties");
                 if (cwdProps.exists()) {
@@ -72,7 +72,7 @@ public class Eli5Config {
                 logger.debug("Failed to load current directory eli5.properties: {}", e.getMessage());
             }
             
-            // 4. Try target/classes (for compiled projects) - highest priority
+            // 4. Try target/classes (for compiled projects)
             try {
                 File targetProps = new File("target/classes/eli5.properties");
                 if (targetProps.exists()) {

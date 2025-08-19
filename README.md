@@ -16,7 +16,7 @@ Add this to your `pom.xml`:
 <dependency>
     <groupId>io.github.beingmartinbmc</groupId>
     <artifactId>eli5</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -60,16 +60,16 @@ Use the Maven plugin to generate documentation:
 
 ```bash
 # Scan for annotations only
-mvn io.github.beingmartinbmc:eli5:1.0.0:generate-docs -Deli5.scanOnly=true
+mvn io.github.beingmartinbmc:eli5:1.0.2:generate-docs -Deli5.scanOnly=true
 
 # Generate full documentation
-mvn io.github.beingmartinbmc:eli5:1.0.0:generate-docs
+mvn io.github.beingmartinbmc:eli5:1.0.2:generate-docs
 
 # Generate from specific source directory
-mvn io.github.beingmartinbmc:eli5:1.0.0:generate-docs -Deli5.sourceDirectory=src/main/java
+mvn io.github.beingmartinbmc:eli5:1.0.2:generate-docs -Deli5.sourceDirectory=src/main/java
 
 # Custom output location
-mvn io.github.beingmartinbmc:eli5:1.0.0:generate-docs -Deli5.outputFile=docs/eli5.md
+mvn io.github.beingmartinbmc:eli5:1.0.2:generate-docs -Deli5.outputFile=docs/eli5.md
 ```
 
 The documentation will be generated in `target/eli5-docs/eli5.md` by default.
@@ -287,4 +287,3 @@ eli5/
 ## Contributing
 
 [Add contribution guidelines here]
-# eli5
