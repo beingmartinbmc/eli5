@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Library-appropriate logging: only console output, no file logging -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- ELI5 specific loggers - use WARN level by default for library -->
+    <logger name="io.github.beingmartinbmc.eli5" level="WARN"/>
+    <logger name="io.github.beingmartinbmc.eli5.processor" level="WARN"/>
+    <logger name="io.github.beingmartinbmc.eli5.ai" level="WARN"/>
+    
+    <!-- Root logger - only console, no file -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

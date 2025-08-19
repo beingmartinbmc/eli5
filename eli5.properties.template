@@ -1,0 +1,18 @@
+# ELI5 Annotations Configuration Template
+# Copy this file to src/main/resources/eli5.properties and configure with your settings
+
+# General Configuration
+eli5.outputMode=markdown
+eli5.outputPath=target/eli5-docs
+eli5.ai.service=openai
+
+# OpenAI Configuration
+# Set your OpenAI API key here or use environment variable ELI5_OPENAI_API_KEY
+# Get your API key from: https://platform.openai.com/account/api-keys
+eli5.openai.apiKey=your-openai-api-key-here
+eli5.openai.model=gpt-4.1-nano
+eli5.openai.maxTokens=2000
+eli5.openai.temperature=0.7
+
+# Alternative: Use environment variable instead of hardcoding the API key
+# Set environment variable: export ELI5_OPENAI_APIKEY=your-actual-api-key
