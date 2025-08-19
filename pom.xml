@@ -7,7 +7,7 @@
 
     <groupId>io.github.beingmartinbmc</groupId>
     <artifactId>eli5</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <packaging>maven-plugin</packaging>
 
     <name>ELI5</name>
@@ -75,13 +75,7 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
+
         
         <!-- Maven Plugin API -->
         <dependency>
@@ -121,11 +115,7 @@
                 </configuration>
             </plugin>
             
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-            </plugin>
+
             
             <!-- Maven Plugin Tools for annotation processing -->
             <plugin>
