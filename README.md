@@ -1,5 +1,13 @@
 # ELI5 Annotations
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.beingmartinbmc/eli5.svg)](https://search.maven.org/artifact/io.github.beingmartinbmc/eli5)
+[![Java](https://img.shields.io/badge/Java-11+-blue.svg)](https://openjdk.java.net/)
+[![Maven](https://img.shields.io/badge/Maven-3.6+-orange.svg)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/beingmartinbmc/eli5.svg)](https://github.com/beingmartinbmc/eli5/releases)
+[![Maintenance](https://img.shields.io/badge/Maintenance-Actively%20Maintained-brightgreen.svg)](https://github.com/beingmartinbmc/eli5)
+[![Version](https://img.shields.io/badge/Current%20Version-1.0.4-blue.svg)](https://github.com/beingmartinbmc/eli5/releases/tag/v1.0.4)
+
 Explain Like I'm 5 (ELI5) annotations for Java code documentation. This project provides annotations that automatically generate simple, easy-to-understand explanations of Java code using AI services.
 
 ## What It Does
@@ -7,6 +15,8 @@ Explain Like I'm 5 (ELI5) annotations for Java code documentation. This project 
 The `@ExplainLikeImFive` annotation automatically generates child-friendly explanations of your Java code using AI services. It uses a Maven plugin approach for clean, fast documentation generation without interfering with your build process.
 
 ## Quick Start
+
+[![Quick Start](https://img.shields.io/badge/Quick%20Start-🚀%20Get%20Started%20in%205%20Minutes-brightgreen.svg)](https://github.com/beingmartinbmc/eli5)
 
 ### 1. Add Dependency
 
@@ -350,6 +360,11 @@ eli5/
 ```
 
 ## Features
+
+[![Maven Plugin](https://img.shields.io/badge/Maven%20Plugin-✅%20Supported-brightgreen.svg)](https://maven.apache.org/)
+[![OpenAI](https://img.shields.io/badge/OpenAI%20Integration-🤖%20AI%20Powered-blue.svg)](https://openai.com/)
+[![Batch Processing](https://img.shields.io/badge/Batch%20Processing-⚡%20Fast%20%26%20Efficient-orange.svg)](https://maven.apache.org/)
+[![Security](https://img.shields.io/badge/Security-🔒%20API%20Key%20Safe-red.svg)](https://github.com/beingmartinbmc/eli5)
 
 ✅ **Maven Plugin**: Clean, separate documentation generation
 ✅ **Batch Processing**: Single API call for all annotations (fast & efficient)
